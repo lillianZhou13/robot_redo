@@ -1,0 +1,33 @@
+{
+  "name": "robot_redo",
+  "version": "1.0.0",
+  "description": "CLI game with Node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lillianZhou13/robot_redo.git"
+  },
+  "keywords": [
+    "command",
+    "line",
+    "games",
+    "robot",
+    "Js",
+    "Node"
+  ],
+  "author": "Lillian",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lillianZhou13/robot_redo/issues"
+  },
+  "homepage": "https://github.com/lillianZhou13/robot_redo#readme",
+  "devDependencies": {
+    "eslint": "^7.32.0"
+  },
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}
