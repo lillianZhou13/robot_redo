@@ -1,5 +1,6 @@
 const { TABLE_SIZE } = require('./constants');
 
+
 function Table(TABLE_SIZE){
     this.minX = 0;
     this.minY = 0;
@@ -11,7 +12,6 @@ function Table(TABLE_SIZE){
         ||(position.y === this.maxY && position.f === "NORTH")
         ||(position.x === this.minX && position.f === "SOUTH")
         ||(position.y === this.minY && position.f === "WEST")){
-          console.log("opps, boundary",position);
          return true;
       }else{
          return false;

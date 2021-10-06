@@ -1,6 +1,8 @@
+const { DIRECTIONS } = require('./constants');
 const { Robot } =  require('./Robot');
 const bot =  new Robot();
-const { DIRECTIONS } = require('./constants');
+
+
 const lineListener = (input) =>{
     try {
         const inputCommands = input.toUpperCase().trim();
