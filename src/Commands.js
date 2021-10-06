@@ -1,38 +1,38 @@
 const { Robot } =  require('./Robot');
-const robot1 =  new Robot(1);
+const bot =  new Robot();
 const { DIRECTIONS } = require('./constants');
 const lineListener = (input) =>{
     try {
         const inputCommands = input.toUpperCase().trim();
           if(inputCommands.includes('PLACE')){
-              if(isValidatePosition(inputCommands)){
-                  const placedPosition = isValidatePosition(inputCommands);
-                  console.log(placedPosition);
-                  robot1.setPosition(placedPosition); 
+              const newPostion=validatePosition(inputCommands);
+              if(newPostion){
+                  console.log(newPostion);
+                  bot.setPosition(newPostion); 
               }else{
-                process.stdout.write("UNVALIDATED PLACE");
+                process.stdout.write("PLACING COMMAND ERROR");
                }
               
           }else{
             switch(inputCommands){
              case "MOVE":
                console.log("MOVE");
-               robot1.move();
+               bot.move();
                break;
              case "REPORT":
               console.log("REPORT");
-               robot1.getReport();
+               bot.getReport();
                break;
              case "LEFT":
-               robot1.faceOnChange("LEFT");
+               bot.faceOnChange("LEFT");
                process.stdout.write("LEFT");
                break;
              case "RIGHT":
-               robot1.faceOnChange("RIGHT");
+               bot.faceOnChange("RIGHT");
                process.stdout.write("RIGHT");
                break;        
              default:
-              console.log("nothing input")
+              console.log("input error")
            }
           } 
       } catch (error) {
@@ -40,18 +40,18 @@ const lineListener = (input) =>{
       }
 }
 
-function isValidatePosition(input){
+function validatePosition(input){
    
     const inputForValidate =  input.split(/[ ,]+/);
-    const resF = inputForValidate.filter(item=>DIRECTIONS.indexOf(item)!== -1);
-    const digits = inputForValidate.filter(item=>/\d/.test(item));
-    if(resF.length>0 && digits.length === 2){
-        const placedPosition = {
-         x: +digits[0],
-         y: +digits[1],
-         f: resF[0]
+    const directionArray = inputForValidate.filter(item=>DIRECTIONS.indexOf(item)!== -1);
+    const digitsArray = inputForValidate.filter(item=>/\d/.test(item));
+    if(directionArray.length===1 && digitsArray.length === 2){
+        const newPosition = {
+         x: +digitsArray[0],
+         y: +digitsArray[1],
+         f: directionArray[0]
         }
-        return placedPosition;
+        return newPosition;
      }else{
          return false;
      }

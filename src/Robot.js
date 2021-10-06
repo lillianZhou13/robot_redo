@@ -3,8 +3,7 @@ const { Table } = require('./Table');
 const table = new Table(TABLE_SIZE);
 
 class Robot {
-    constructor(id){
-       this.id =id;
+    constructor(){
        this.position = {
         x: 0,
         y: 0,
