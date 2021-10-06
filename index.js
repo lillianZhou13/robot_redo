@@ -10,32 +10,37 @@ const rl = readline.createInterface({
 });
 
 rl.on('line',(input)=>{
-    console.log("input---",input)
-    const inputCommands = input.toUpperCase().trim();
-    switch(inputCommands){
-        case "PLACE":
+    console.log("input---",input);
+    try {
+        const inputCommands = input.toUpperCase().trim();
+        switch(inputCommands){
+          case "PLACE":
             process.stdout.write(`robot--${inputCommands}`);
             robot1.setPosition(inputCommands);
             break;
-        case "MOVE":
+          case "MOVE":
             robot1.move();
             process.stdout.write(`robot--${inputCommands}`);
-            
             break;
-        case "REPORT":
+          case "REPORT":
             console.log('robot--',inputCommands);
             break;
-        case "LEFT":
+          case "LEFT":
             robot1.faceOnChange("LEFT");
-            console.log('robot--',inputCommands);
+            process.stdout.write("LEFT");
             break;
-        case "RIGHT":
+          case "RIGHT":
             robot1.faceOnChange("RIGHT");
-            console.log('robot--',inputCommands);
+            process.stdout.write("RIGHT");
             break;        
-        default:
+          default:
             console.log("nothing input")
-        }
+         }
+        
+    } catch (error) {
+        process.stdout.write(error);
+    }
+    
 });
 
 rl.on("close",()=>{
