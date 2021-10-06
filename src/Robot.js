@@ -2,29 +2,37 @@ const { DIRECTIONS, MOVE_STEP,TABLE_SIZE} = require('./constants');
 const { Table } = require('./Table');
 const table = new Table(TABLE_SIZE);
 
-function Robot(id){
-    this.id = id;
-    this.position = {
+class Robot {
+    constructor(id){
+       this.id =id;
+       this.position = {
         x: 0,
         y: 0,
         f: 'EAST'
     };
+    } 
+    
   
-  this.setPosition = function(position){
+  setPosition = (position) => {
       console.log("position form place commands",position);
-      this.position.x = position.x;
-      this.position.y = position.y;
-      this.position.f = position.f;
+      if(table.isTableBoundary(position)){
+         console.log("table boundary in setPosition",position)
+          return;
+      }else{
+        this.position.x = position.x;
+        this.position.y = position.y;
+        this.position.f = position.f;
+      }
+
   };
 
-  this.move = function(){
-    console.log("move called in robotMove");
-
-    if(table.isBoundry(this.position)){
-        console.log("Turn left or right");
+  move = () => {
+    console.log("move called in robot"); 
+    if(table.isTableBoundary(this.position)){
+        console.log("reach boundary,Turn left or right");
         return;
     }else{
-       console.log("move one step forward");
+       console.log("not boundary,move one step forward");
        switch(this.position.f){
         case  "NORTH":
             this.position.y = this.position.y + MOVE_STEP;
@@ -45,7 +53,7 @@ function Robot(id){
    
   }
 
-  this.faceOnChange = function(direction){
+  faceOnChange = (direction) => {
     let currentFace = DIRECTIONS.indexOf(this.position.f);
     if(currentFace !== -1 && direction === "LEFT"){
       this.position.f = currentFace === 0 ? DIRECTIONS[3] : DIRECTIONS[currentFace-1];
@@ -57,6 +65,9 @@ function Robot(id){
         this.position.f = currentFace;
     }
     console.log("\nROTATE TO ", this.position.f); 
+  }
+  getReport =() =>{
+    console.log(`\nREPORT x:${this.position.x},y:${this.position.y},f:${this.position.f}`);
   }
 }
 
