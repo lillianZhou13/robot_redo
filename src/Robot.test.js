@@ -17,7 +17,7 @@ describe('Robot class', () => {
       expect(botTest.position).toEqual(position);
     });
 
-    it('should move method update robot position', () => {  
+    it('should move method update robot x or y correctly', () => {  
       botTest.move();
       botTest.move();
       expect(botTest.move).toHaveBeenCalledTimes(2);
@@ -25,7 +25,7 @@ describe('Robot class', () => {
       
     });
 
-    it('should faceOnChange method work',()=>{
+    it('should faceOnChange method update Robot face correctly',()=>{
       botTest.faceOnChange('LEFT');
       expect(botTest.faceOnChange).toHaveBeenCalledTimes(1);
       expect(botTest.position.f).toEqual('WEST');

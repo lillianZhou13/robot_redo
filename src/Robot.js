@@ -11,16 +11,16 @@ class Robot {
     
   
   setPosition = (position) => {
-      console.log("position form place commands",position);
+
       if(position){
          
          this.position.x = position.x;
          this.position.y = position.y;
          this.position.f = position.f;
-         return true;
+         
       }else{
-        console.log("no position value");
-        return false;
+        console.log("\nNO POSITION VALUE");
+        
       }
 
   };
@@ -28,9 +28,9 @@ class Robot {
   move = () => {
     try{
        if(!this.position.x ||!this.position.y || !this.position.f)  throw "NO VALID POSITION SET";
-         console.log("move called in robot",this.position); 
+         
        if(table.isTableBoundary(this.position)){
-        console.log("ERROR: REACH TABLE BOUNDARY,TURN LEFT OR RIGHT");
+        console.log("\nERROR: REACH TABLE BOUNDARY,TURN LEFT OR RIGHT");
         return;
         }else{
         switch(this.position.f){
@@ -51,7 +51,7 @@ class Robot {
        }
     }
       }catch(error){
-       console.log("ERROR: NO VALID POSITION");
+       console.log("\nERROR: NO VALID POSITION");
       }
     
    
@@ -72,7 +72,7 @@ class Robot {
               this.position.f = currentFace;
           }
     }catch(error){
-      console.log("ERROR: ", JSON.stringify(error));
+      console.log("\nERROR: ", JSON.stringify(error));
     }
     
   }
@@ -81,7 +81,7 @@ class Robot {
     if(this.position.x && this.position.y && this.position.f){
         console.log(`\nOUTPUT ${this.position.x},${this.position.y},${this.position.f}`);
     }else{
-        console.log("ERROR: NO VALID POSITION SET");
+        console.log("\nERROR: NO VALID POSITION SET");
     }
     
   }

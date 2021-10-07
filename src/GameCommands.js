@@ -9,7 +9,6 @@ const lineListener = (input) =>{
           if(inputCommands.includes('PLACE')){
               const newPostion=validatePosition(inputCommands);
               if(newPostion){
-                  console.log(newPostion);
                   bot.setPosition(newPostion); 
               }else{
                 process.stdout.write("PLACING COMMAND ERROR");
@@ -19,23 +18,23 @@ const lineListener = (input) =>{
            
             switch(inputCommands){
              case "MOVE":
-               console.log("MOVE");
+               process.stdout.write("\nMOVE");
                bot.move();
                break;
              case "REPORT":
-              console.log("REPORT");
+               process.stdout.write("\nREPORT");
                bot.getReport();
                break;
              case "LEFT":
                bot.faceOnChange("LEFT");
-               process.stdout.write("LEFT");
+               process.stdout.write("\nLEFT");
                break;
              case "RIGHT":
                bot.faceOnChange("RIGHT");
-               process.stdout.write("RIGHT");
+               process.stdout.write("\nRIGHT");
                break;        
              default:
-              console.log("input error")
+               process.stdout.write("INPUT ERROR")
            }
           
           }
@@ -53,17 +52,15 @@ const validatePosition=(input)=>{
     if(directionArray.length===1 && digitsArray.length === 2 ){
         const x =  +digitsArray[0];
         const y =  +digitsArray[1];
-        console.log("digits",x,y,TABLE_SIZE.x);
-        if(x >= 0 && x <= TABLE_SIZE.x
-            && y >= 0 && y <= TABLE_SIZE.y){
-                console.log("right number",x,y);
-        const newPosition = {
-         x: x,
-         y: y,
-         f: directionArray[0]
-        }
-        return newPosition;
-    }else {return false;}
+        
+        if(x >= 0 && x <= TABLE_SIZE.x && y >= 0 && y <= TABLE_SIZE.y){
+          const newPosition = {
+            x: x,
+            y: y,
+            f: directionArray[0]
+          }
+         return newPosition;
+        }else { return false; }
      }else{
          return false;
      }
