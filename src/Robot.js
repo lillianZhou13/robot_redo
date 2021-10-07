@@ -14,19 +14,19 @@ class Robot {
   
   setPosition = (position) => {
       console.log("position form place commands",position);
-      if(table.isTableBoundary(position)){
-         console.log("table boundary in setPosition",position)
-          return;
+      if(position){
+         console.log("table boundary in setPosition",position);
+         this.position.x = position.x;
+         this.position.y = position.y;
+         this.position.f = position.f;
       }else{
-        this.position.x = position.x;
-        this.position.y = position.y;
-        this.position.f = position.f;
+        console.log("no position value");
       }
 
   };
 
   move = () => {
-    console.log("move called in robot"); 
+    console.log("move called in robot",this.position); 
     if(table.isTableBoundary(this.position)){
         console.log("reach boundary,Turn left or right");
         return;
