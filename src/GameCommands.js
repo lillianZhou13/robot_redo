@@ -4,7 +4,7 @@ const bot =  new Robot();
 
 
 const lineListener = (input) =>{
-    try {
+    try{
         const inputCommands = input.toUpperCase().trim();
           if(inputCommands.includes('PLACE')){
               const newPostion=validatePosition(inputCommands);
@@ -14,8 +14,9 @@ const lineListener = (input) =>{
               }else{
                 process.stdout.write("PLACING COMMAND ERROR");
                }
-              
+             
           }else{
+           
             switch(inputCommands){
              case "MOVE":
                console.log("MOVE");
@@ -36,9 +37,11 @@ const lineListener = (input) =>{
              default:
               console.log("input error")
            }
-          } 
-      } catch (error) {
-          //process.stdout.write("UNVALIDATED INPUT",JSON.stringify(error));
+          
+          }
+           
+        }catch (error) {
+          console.log("UNVALID INPUT",JSON.stringify(error));
       }
 }
 
