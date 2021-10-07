@@ -17,8 +17,10 @@ class Robot {
          this.position.x = position.x;
          this.position.y = position.y;
          this.position.f = position.f;
+         return true;
       }else{
         console.log("no position value");
+        return false;
       }
 
   };
@@ -32,7 +34,7 @@ class Robot {
         return;
         }else{
         switch(this.position.f){
-          case  "NORTH":
+          case "NORTH":
             this.position.y = this.position.y + MOVE_STEP;
             break;
           case "EAST":
@@ -49,7 +51,7 @@ class Robot {
        }
     }
       }catch(error){
-       console.log("ERROR:NO VALID POSITION");
+       console.log("ERROR: NO VALID POSITION");
       }
     
    
@@ -77,7 +79,7 @@ class Robot {
 
   getReport =() =>{
     if(this.position.x && this.position.y && this.position.f){
-        console.log(`\nREPORT x:${this.position.x},y:${this.position.y},f:${this.position.f}`);
+        console.log(`\nOUTPUT ${this.position.x},${this.position.y},${this.position.f}`);
     }else{
         console.log("ERROR: NO VALID POSITION SET");
     }
