@@ -4,9 +4,7 @@ const table = new Table(TABLE_SIZE);
 
 class Robot {
     constructor(){
-       this.position = {
-    
-    };
+       this.position = {};
     } 
     
   
@@ -33,28 +31,26 @@ class Robot {
         console.log("\nERROR: REACH TABLE BOUNDARY,TURN LEFT OR RIGHT");
         return;
         }else{
-        switch(this.position.f){
-          case "NORTH":
-            this.position.y = this.position.y + MOVE_STEP;
-            break;
-          case "EAST":
-            this.position.x = this.position.x + MOVE_STEP
-            break;
-          case "SOUTH":
-            this.position.y = this.position.y - MOVE_STEP;
-            break;
-          case "WEST":
-            this.position.x = this.position.x - MOVE_STEP
-            break;
-          default:
-            return this.position;
-       }
-    }
+         switch(this.position.f){
+            case "NORTH":
+             this.position.y = this.position.y + MOVE_STEP;
+              break;
+            case "EAST":
+              this.position.x = this.position.x + MOVE_STEP
+              break;
+            case "SOUTH":
+              this.position.y = this.position.y - MOVE_STEP;
+              break;
+            case "WEST":
+              this.position.x = this.position.x - MOVE_STEP
+              break;
+            default:
+              return this.position;
+           }
+        }
       }catch(error){
        console.log("\nERROR: NO VALID POSITION");
       }
-    
-   
   }
 
   faceOnChange = (direction) => {
@@ -71,9 +67,9 @@ class Robot {
           }else{
               this.position.f = currentFace;
           }
-    }catch(error){
-      console.log("\nERROR: ", JSON.stringify(error));
-    }
+        }catch(error){
+        console.log("\nERROR: ", JSON.stringify(error));
+        }
     
   }
 

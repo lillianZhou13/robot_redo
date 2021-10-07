@@ -14,37 +14,36 @@ const lineListener = (input) =>{
                 process.stdout.write("PLACING COMMAND ERROR");
                }
              
-          }else{
+           }else{
            
             switch(inputCommands){
-             case "MOVE":
-               process.stdout.write("\nMOVE");
-               bot.move();
-               break;
-             case "REPORT":
-               process.stdout.write("\nREPORT");
-               bot.getReport();
-               break;
-             case "LEFT":
-               bot.faceOnChange("LEFT");
-               process.stdout.write("\nLEFT");
-               break;
-             case "RIGHT":
-               bot.faceOnChange("RIGHT");
-               process.stdout.write("\nRIGHT");
-               break;        
-             default:
-               process.stdout.write("INPUT ERROR")
-           }
+              case "MOVE":
+                process.stdout.write("\nMOVE\n");
+                bot.move();
+                break;
+              case "REPORT":
+                bot.getReport();
+                break;
+              case "LEFT":
+                bot.faceOnChange("LEFT");
+                process.stdout.write("\nLEFT\n");
+                break;
+              case "RIGHT":
+                bot.faceOnChange("RIGHT");
+                process.stdout.write("\nRIGHT\n");
+                break;        
+              default:
+                process.stdout.write("INPUT ERROR")
+            }
           
           }
            
         }catch (error) {
           console.log("UNVALID INPUT",JSON.stringify(error));
-      }
+    }
 }
 
-const validatePosition=(input)=>{
+const validatePosition = (input) => {
    
     const inputForValidate =  input.split(/[ ,]+/);
     const directionArray = inputForValidate.filter(item=>DIRECTIONS.indexOf(item)!== -1);

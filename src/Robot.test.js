@@ -20,7 +20,8 @@ describe('Robot class', () => {
     it('should move method update robot x or y correctly', () => {  
       botTest.move();
       botTest.move();
-      expect(botTest.move).toHaveBeenCalledTimes(2);
+      botTest.move();
+      expect(botTest.move).toHaveBeenCalledTimes(3);
       expect(botTest.position.y).toEqual(5);
       
     });
