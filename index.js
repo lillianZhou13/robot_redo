@@ -1,5 +1,5 @@
 
-const { lineListener } = require('./src/Commands');
+const { lineListener } = require('./src/GameCommands');
 const readline = require('readline');
 
 const rl = readline.createInterface({
