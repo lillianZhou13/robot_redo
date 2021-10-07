@@ -42,7 +42,7 @@ const lineListener = (input) =>{
       }
 }
 
-function validatePosition(input){
+const validatePosition=(input)=>{
    
     const inputForValidate =  input.split(/[ ,]+/);
     const directionArray = inputForValidate.filter(item=>DIRECTIONS.indexOf(item)!== -1);
@@ -66,4 +66,4 @@ function validatePosition(input){
      }
  }
 
- module.exports = { lineListener };
+ module.exports = { lineListener,validatePosition };

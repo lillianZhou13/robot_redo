@@ -15,7 +15,7 @@ class Robot {
   setPosition = (position) => {
       console.log("position form place commands",position);
       if(position){
-         console.log("table boundary in setPosition",position);
+         
          this.position.x = position.x;
          this.position.y = position.y;
          this.position.f = position.f;
