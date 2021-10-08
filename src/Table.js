@@ -14,9 +14,9 @@ class Table{
   }
     
 
-     isTableBoundary = (position) =>{
-      if((position.x === this.#minX && position.f === "SOUTH")
-        ||(position.y === this.#minY && position.f === "WEST")
+  isTableBoundary=(position)=> {
+      if((position.x === this.#minX && position.f === "WEST")
+        ||(position.y === this.#minY && position.f === "SOUTH")
         ||(position.x === this.#maxX && position.f === "EAST")
         ||(position.y === this.#maxY && position.f === "NORTH")){
          return true;

@@ -25,7 +25,7 @@ class Robot {
 
   move = () => {
     try{
-       if(!this.position.x ||!this.position.y || !this.position.f)  throw "NO VALID POSITION SET";
+       if(!this.position.f)  throw "NO VALID POSITION SET";
          
        if(table.isTableBoundary(this.position)){
         console.log("\nERROR: REACH TABLE BOUNDARY,TURN LEFT OR RIGHT");
@@ -49,7 +49,7 @@ class Robot {
            }
         }
       }catch(error){
-       console.log("\nERROR: NO VALID POSITION");
+        console.log("\nERROR: ", JSON.stringify(error));
       }
   }
 
@@ -68,13 +68,13 @@ class Robot {
               this.position.f = currentFace;
           }
         }catch(error){
-        console.log("\nERROR: ", JSON.stringify(error));
+         console.log("\nERROR: ", JSON.stringify(error));
         }
     
   }
 
   getReport =() =>{
-    if(this.position.x && this.position.y && this.position.f){
+    if(this.position.f){
         console.log(`\nOUTPUT ${this.position.x},${this.position.y},${this.position.f}`);
     }else{
         console.log("\nERROR: NO VALID POSITION SET");
