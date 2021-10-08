@@ -4,6 +4,7 @@ const bot =  new Robot();
 
 
 const lineListener = (input) =>{
+    
     try{
         const inputCommands = input.toUpperCase().trim();
           if(inputCommands.includes('PLACE')){
@@ -11,14 +12,14 @@ const lineListener = (input) =>{
               if(newPostion){
                   bot.setPosition(newPostion); 
               }else{
-                process.stdout.write("\nPLACING COMMAND ERROR");
+                process.stdout.write("\nPLACING COMMAND ERROR\n");
                }
              
            }else{
-           
+            if(!bot.position.f) throw "NO VALID POSITION SET,PLACE X,Y,F FIRST";
             switch(inputCommands){
               case "MOVE":
-                process.stdout.write("\nMOVE");
+                process.stdout.write("\nMOVE\n");
                 bot.move();
                 break;
               case "REPORT":
@@ -26,14 +27,14 @@ const lineListener = (input) =>{
                 break;
               case "LEFT":
                 bot.faceOnChange("LEFT");
-                process.stdout.write("\nLEFT");
+                process.stdout.write("\nLEFT\n");
                 break;
               case "RIGHT":
                 bot.faceOnChange("RIGHT");
-                process.stdout.write("\nRIGHT");
+                process.stdout.write("\nRIGHT\n");
                 break;        
               default:
-                process.stdout.write("\nINPUT ERROR")
+                process.stdout.write("\nINPUT ERROR\n")
             }
           
           }
