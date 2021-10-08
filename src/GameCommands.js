@@ -11,14 +11,14 @@ const lineListener = (input) =>{
               if(newPostion){
                   bot.setPosition(newPostion); 
               }else{
-                process.stdout.write("PLACING COMMAND ERROR");
+                process.stdout.write("\nPLACING COMMAND ERROR");
                }
              
            }else{
            
             switch(inputCommands){
               case "MOVE":
-                process.stdout.write("\nMOVE\n");
+                process.stdout.write("\nMOVE");
                 bot.move();
                 break;
               case "REPORT":
@@ -26,20 +26,20 @@ const lineListener = (input) =>{
                 break;
               case "LEFT":
                 bot.faceOnChange("LEFT");
-                process.stdout.write("\nLEFT\n");
+                process.stdout.write("\nLEFT");
                 break;
               case "RIGHT":
                 bot.faceOnChange("RIGHT");
-                process.stdout.write("\nRIGHT\n");
+                process.stdout.write("\nRIGHT");
                 break;        
               default:
-                process.stdout.write("INPUT ERROR")
+                process.stdout.write("\nINPUT ERROR")
             }
           
           }
            
         }catch (error) {
-          console.log("UNVALID INPUT",JSON.stringify(error));
+          console.log("\nUNVALID INPUT",JSON.stringify(error));
     }
 }
 
